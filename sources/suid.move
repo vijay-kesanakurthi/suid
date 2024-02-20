@@ -1,10 +1,7 @@
-
-/*
-    
+/*    
     The SUID module is a simple staking pool that allows users to stake SUI and receive SUID in return. 
     User can also stake and unstake SUI with the given validator.
     
-
     Functions
     1. add_liquidity: Add liquidity to the pool by transferring SUI to the pool and receiving SUID in return.
     2. remove_liquidity: Remove liquidity from the pool by burning SUID and receiving SUI in return.
@@ -12,11 +9,7 @@
     4. unstake:  unstake the SUI.
     5. get_supply: Return the total supply of SUID.
     6. get_assets: Return the total amount of SUI in the pool.
-
 */
-
-
-
 
 module suid::suid {
     use sui::object::{Self, UID};
@@ -34,8 +27,7 @@ module suid::suid {
     use sui::test_scenario;
     #[test_only]
     use sui::test_utils::assert_eq;
-     #[test_only]
-    use std::debug;
+
 
     //===========CONSTANTS================
      
@@ -174,7 +166,7 @@ module suid::suid {
         validator_address: address,
         ctx: &mut TxContext
 
-    ): Coin<SUID> {
+    ) {
         sui_system::request_add_stake(state, sui, validator_address, ctx);
     }
 
@@ -380,7 +372,6 @@ module suid::suid {
 
             let suid_supply = get_supply(&pool);
             let amt_sui = get_assets(&pool);
-            let expected_suid_supply = coin::value(&suid_tokens);
             assert_eq(suid_supply, amount);
             assert_eq(amt_sui, amount);
             coin::burn_for_testing(suid_tokens);
