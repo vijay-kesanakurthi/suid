@@ -18,7 +18,15 @@ The SUID module is a simple staking pool that allows users to stake SUI and rece
 
 #### 4. unstake:
 
-- Unstake the SUI. 5. get_supply: Return the total supply of SUID. 6. get_assets: Return the total amount of SUI in the pool.
+- Unstake the SUI.
+
+#### 5. get_supply:
+
+- Return the total supply of SUID.
+
+#### 6. get_assets:
+
+- Return the total amount of SUI in the pool.
 
 ## How to Build
 
